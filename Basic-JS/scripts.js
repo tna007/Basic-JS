@@ -29,16 +29,21 @@ let e = Math.floor(Math.random() * 2);
   default:
     console.log("You have not won a jackpot prize", a, b, c, d, e);
     break;
-} */ if (
-  a == b &&
-  a == c &&
-  a == d &&
-  a == e
-) {
+} */
+if (a == b && a == c && a == d && a == e) {
   if (a == 0) {
     console.log("Congrats!", a, b, c, d, e);
   } else {
-    console.log("Jackpot!", a, b, c, d, e, "/n Your prob is:", 1 / 2 ** 5);
+    console.log(
+      "Jackpot!",
+      a,
+      b,
+      c,
+      d,
+      e,
+      "/n Your probability is:",
+      1 / 2 ** 5
+    );
   }
 } else {
   console.log("Good luck next time!", a, b, c, d, e);
