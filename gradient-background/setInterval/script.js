@@ -46,7 +46,6 @@ const winstat = () => {
   }
 };
 arrayOfWinBulbIndex[count] = true;
-// if ((arrayOfWinBulbIndex[count] = true)) {
 document.getElementById("stop-btn").addEventListener("click", winstat);
 
 console.log(winstat);
