@@ -48,11 +48,6 @@ const winstat = () => {
 arrayOfWinBulbIndex[count] = true;
 document.getElementById("stop-btn").addEventListener("click", winstat);
 
-console.log(winstat);
-//} else {
-//  console.log("gluck nxt time");
-//} */
-
 /* const arrangeBulbsInACircle = (nodes) => {
   const radius = "12em",
     start = -90,
