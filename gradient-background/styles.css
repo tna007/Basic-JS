@@ -1,0 +1,29 @@
+body,
+input {
+  text-align: center;
+}
+
+body {
+  background-image: linear-gradient(to right, #e4e1c4, #a03871);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: azure;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+h2 {
+  padding-top: 50px;
+  border-top: 1px dashed gray;
+}
+
+input[type="submit"] {
+  background: indigo;
+  display: block;
+  margin: 50px auto;
+  padding: 16px;
+  color: ivory;
+  border: none;
+}

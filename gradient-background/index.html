@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate your own gradient background</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Generate your own gradient background easily now:</h1>
+    <form action="">
+      <div class="direction">
+        <h2>First, choose the direction:</h2>
+        <input
+          checked
+          type="radio"
+          name="direction"
+          id="left-right"
+          value="to right"
+        />
+        <label for="left-right">Left to right </label>
+        <input type="radio" name="direction" id="right-left" value="to left" />
+        <label for="right-left">Right to left </label>
+        <input
+          type="radio"
+          name="direction"
+          id="top-bottom"
+          value="to bottom"
+        />
+        <label for="top-bottom">Top to bottom </label>
+        <input type="radio" name="direction" id="bottom-top" value="to top" />
+        <label for="bottom-top">Bottom to top </label>
+      </div>
+      <div class="direction">
+        <h2>second, choose colors:</h2>
+        <input type="color" name="color" id="color1" value="#e4e1c4" />
+        <input type="color" name="color" id="color2" value="#a03871" />
+        <input type="submit" value="Generate" />
+      </div>
+    </form>
+
+    <h2>Finally, copy your CSS code:</h2>
+
+    <p></p>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
