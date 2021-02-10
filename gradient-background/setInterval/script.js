@@ -1,4 +1,4 @@
-const numberOfBulb = 15;
+const numberOfBulb = 50;
 const DELAY = 500;
 const winBulbIndex = 7;
 
@@ -48,7 +48,7 @@ const winstat = () => {
 arrayOfWinBulbIndex[count] = true;
 document.getElementById("stop-btn").addEventListener("click", winstat);
 
-/* const arrangeBulbsInACircle = (nodes) => {
+const arrangeBulbsInACircle = (nodes) => {
   const radius = "12em",
     start = -90,
     $els = [...nodes], // turn nodelist into a real array
@@ -65,4 +65,4 @@ document.getElementById("stop-btn").addEventListener("click", winstat);
 };
 
 // invoke the fn on the class bulb elements to create the effect
-arrangeBulbsInACircle(document.getElementsByClassName("bulb")); */
+arrangeBulbsInACircle(document.getElementsByClassName("bulb"));
