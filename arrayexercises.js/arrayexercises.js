@@ -71,7 +71,8 @@ let fifthArray = [
 ];
 // create unique array
 let unique = [];
-// for each element in fifth array, if there is a new element which is not the same as previous element, add the new element to unique array
+// go through each element (el) in fifth array, once at a time
+// if argument will be executed only when the current element (el) is not found in the unique array -> add the new element (el) to unique array//
 fifthArray.forEach((el) => {
   if (unique.indexOf(el) === -1) {
     unique.push(el);
@@ -105,6 +106,14 @@ expectedResult = [
 let sixthArray = [1, 2, 3, "hello", true, false];
 let seventhArray = ["hello", false, 1, 3, true, 2];
 
+sixthArray.forEach((el) => {
+  if (seventhArray.indexOf(el) === -1) {
+    console.log("not same array");
+  } else {
+    console.log("same");
+  }
+});
+
 // eighthArray and ninthArray are not
 let eighthArray = [1, 2, true, false, "hello", 3, "moi moi"];
 let ninthArray = [];
@@ -127,7 +136,7 @@ let tenthArray = [
   "false",
   [["oh oh"], [[["tom"]], "jerry"], ["not", "again", ["yes", "whynot?", true]]],
 ];
-
+tenthArray.flat(Infinity);
 expectedResult = [
   "one",
   "two",
