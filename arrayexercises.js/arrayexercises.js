@@ -136,7 +136,9 @@ let tenthArray = [
   "false",
   [["oh oh"], [[["tom"]], "jerry"], ["not", "again", ["yes", "whynot?", true]]],
 ];
+
 tenthArray.flat(Infinity);
+
 expectedResult = [
   "one",
   "two",
@@ -197,3 +199,6 @@ let expectedEmails = [
 
 const sample =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod, soluta debitis reiciendis recusandae necessitatibus consequatur. Et odit quas quis, nulla sequi voluptatem, impedit optio, illo nihil at distinctio aliquid.";
+let a = sample.split(" ");
+let b = [];
+a.forEach((el) => (el.indexOf("o") === -1 ? b.push(0) : b.push(1)));
