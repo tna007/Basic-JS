@@ -96,7 +96,7 @@ const getOldest = (userObject) => {
   }
   return userObject[i];
 };
-console.log(getOldest(users));
+
 // Q5.Create a new column to the table name isStaff, update your code so that each row in the table will also display an information if the person is a staff or a student. A student always has a non-negative student number, otherwise it is a staff
 /* function checkStat(obj) {
     //var columnIsStaff = document.createElement("tr");
@@ -118,4 +118,24 @@ console.log(getOldest(users));
     }
   } */
 // Q6.Create a button that will sort the list of users according to their age descendingly and re-render the table with sorted content upon click. Do NOT use .sort() method
-//test
+function sortTbl() {
+  for (let i = 1; i < users.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (users[i].age > users[j].age) {
+        // Swap item position at "i" with "j". Splice to delete item at "i" position and add the item to variable user
+        const [user] = users.splice(i, 1);
+        // Splice item at "j" position and insert variable user
+        users.splice(j, 0, user);
+      }
+    }
+  }
+  console.log(users);
+
+  // Clear the table first
+  while (myTable.rows.length > 1) {
+    myTable.deleteRow(myTable.rows.length - 1);
+  }
+  // Then re-render sorted table
+  users.forEach((user) => addUser(user));
+}
+document.getElementById("sort").addEventListener("click", sortTbl);
