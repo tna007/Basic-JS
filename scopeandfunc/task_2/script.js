@@ -13,8 +13,7 @@
  * >>>>> The HTML document is loaded from top to bottom. If the script is loaded before the HTML document, the script will not be able to find the table element which is why executeScript needs to happen after the DOMContentLoaded.
  * //The DOMContentLoaded fires when the DOM content is loaded, without waiting for images and stylesheets to finish loading. DOMContentLoaded event needed when JavaScript file is placed in the head of the page but referencing elements in the body. Bc the DOM hasnt been loaded when the JavaScript engine parses the script in the head, the button with the id btn doesnt exist. */
 document.addEventListener("DOMContentLoaded", () => {
-  let btn = document.getElementById("btn");
-  btn.addEventListener("click", executeScript);
+  document.getElementById("btn").addEventListener("click", executeScript);
 });
 
 function executeScript() {
@@ -66,76 +65,57 @@ function addUser(userInfo) {
     ? (cellIsStaff = "Staff") //(cellIsStaff.textContent = "Staff")
     : (cellIsStaff = "Student"); //(cellIsStaff.textContent = "Student");
   newRow.innerHTML = `<td>${userInfo.studentNo}</td>
-    <td>${userInfo.name}</td>
-    <td>${userInfo.age}</td>
-    <td>${cellIsStaff}</td>`; //{cellIsStaff.textContent}
+  <td>${userInfo.name}</td>
+  <td>${userInfo.age}</td>
+  <td>${cellIsStaff}</td>`; //{cellIsStaff.textContent}
   document.querySelector("tbody").appendChild(newRow);
 }
 // Q3.Iterate through the array of 5 users, call addUser on each iteration
 const users = getUsers();
-users.forEach((user) => {
-  addUser(user);
-});
+users.forEach(addUser); //users.forEach((user)=>{ addUser(user);});
 
 // Q4.Add a new function getOldest() that expects an array of userObject as parameter, when getOldest() is called, it iterates through the array of objects, and return the oldest person in the array according to the age, do NOT use .find() or filter() method or array methods
 /* function getOldest(a, b) {
-    let comparison = 0;
-    if (a.age > b.age) {
-      comparison = 1;
-    } else if (a.age < b.age) {
-      comparison = -1;
-    }
-    return comparison * -1;
+  let comparison = 0;
+  if (a.age > b.age) {
+    comparison = 1;
+  } else if (a.age < b.age) {
+    comparison = -1;
   }
-  users.sort(getOldest);
-  console.log(users[0]); */
+  return comparison * -1;
+}
+users.sort(getOldest);
+console.log(users[0]); */
 const getOldest = (userObject) => {
   let i = 0;
-  for (j = 1; j < userObject.length; j++) {
+  for (let j = 1; j < userObject.length; j++) {
     userObject[i].age < userObject[j].age ? (i = j) : "";
   }
   return userObject[i];
 };
+const oldest = getOldest(users);
+console.log("oldest", oldest.name, oldest.age);
 
-// Q5.Create a new column to the table name isStaff, update your code so that each row in the table will also display an information if the person is a staff or a student. A student always has a non-negative student number, otherwise it is a staff
-/* function checkStat(obj) {
-    //var columnIsStaff = document.createElement("tr");
-    var cell = columnIsStaff.insertCell();
-    document.getElementById("myTable").appendChild(columnIsStaff);// 
-    var tbHead = document.getElementById("tHead");
-    for (var h = 0; h < tbHead.length; h++) {
-      var newTH = document.createElement("th");
-      tbHead[h].appendChild(newTH);
-      newTH.textContent = "Status";
-    }
-    var tbBody = document.getElementById(obj).tBodies[0];
-    for (var i = 0; i < tbBody.rows.length; i++) {
-      var newCell = tbBody.rows[i].insertCell();
-      tbBody.rows[i].appendChild(newCell);
-      obj.studentNo < 0
-        ? (newCell.textContent = "Staff")
-        : (newCell.textContent = "Student");
-    }
-  } */
 // Q6.Create a button that will sort the list of users according to their age descendingly and re-render the table with sorted content upon click. Do NOT use .sort() method
-function sortTbl() {
-  for (let i = 1; i < users.length; i++) {
-    for (let j = 0; j < i; j++) {
-      if (users[i].age > users[j].age) {
-        // Swap item position at "i" with "j". Splice to delete item at "i" position and add the item to variable user
-        const [user] = users.splice(i, 1);
-        // Splice item at "j" position and insert variable user
-        users.splice(j, 0, user);
+function sortTbl(userObj) {
+  for (let i = 0; i < userObj.length - 1; i++) {
+    for (let j = i + 1; j < userObj.length; j++) {
+      if (userObj[i].age < userObj[j].age) {
+        // Swap item position at "i" with "j". Store the item to variable temp
+        let temp = userObj[j];
+        userObj[j] = userObj[i];
+        userObj[i] = temp;
       }
     }
   }
-  console.log(users);
-
-  // Clear the table first
-  while (myTable.rows.length > 1) {
-    myTable.deleteRow(myTable.rows.length - 1);
-  }
-  // Then re-render sorted table
-  users.forEach((user) => addUser(user));
+  return userObj;
 }
-document.getElementById("sort").addEventListener("click", sortTbl);
+// Render sorted table
+function renderTbl(userObj) {
+  document.getElementById("tbl-content").innerHTML = "";
+  userObj.forEach((user) => addUser(user));
+}
+document.getElementById("sort").addEventListener("click", () => {
+  sortTbl(users);
+  renderTbl(users);
+});

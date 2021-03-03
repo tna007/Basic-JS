@@ -1,37 +1,24 @@
-function getNum(val) {
-  switch (val) {
-    case 1:
-      return 1;
+let operation = document.querySelectorAll(".operators > div");
+
+for (let i = 0; i < operation.length; i++) {
+  operation[i].onclick = function () {
+    clicked(i);
+  };
+}
+
+function clicked(i) {
+  switch (i) {
+    case "+":
+      operation = "plus";
       break;
-    case 2:
-      return 2;
+    case "-":
+      operation = "minus";
       break;
-    case 3:
-      return 3;
+    case "*":
+      operation = "multiply";
       break;
-    case 4:
-      return 4;
-      break;
-    case 5:
-      return 5;
-      break;
-    case 6:
-      return 6;
-      break;
-    case 7:
-      return 7;
-      break;
-    case 8:
-      return 8;
-      break;
-    case 9:
-      return 9;
-      break;
-    case 0:
-      return 0;
-      break;
-    case ".":
-      return ".";
+    case "/":
+      operation = "divide";
       break;
   }
 }
