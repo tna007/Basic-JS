@@ -1,0 +1,60 @@
+body {
+  background-color: lightsteelblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+.lights {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#light {
+  background-color: lightseagreen;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 20px 10px 10px 10px;
+}
+
+.result {
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.over {
+  background-color: wheat;
+  width: 30%;
+  padding: 30px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+}
+#close {
+  background-color: red;
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin: 5px;
+  border: transparent;
+  border-radius: 5px;
+  color: white;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#start,
+#stop {
+  margin: 50px 30px;
+  padding: 5px;
+  width: 50px;
+}
