@@ -1,7 +1,11 @@
-const api = {
-  key: "54c55fda6a81cd006fb0e5b715b6ed8b",
+/* const api = {
+  key: "fa799ef40abb0d87c993a99c71f70b04",
   base: "https://api.openweathermap.org/data/2.5/",
-};
+}; */
+
+const baseAPI = config.MY_base;
+const keyAPI = config.MY_key;
+
 let result = document.getElementsByClassName("result");
 let searchInput = document.querySelector(".search-text");
 let cityName = document.getElementById("result-city");
@@ -20,7 +24,7 @@ function getVal(e) {
 }
 
 function getWeather(location) {
-  fetch(`${api.base}weather?q=${location}&appid=${api.key}`)
+  fetch(`${baseAPI}weather?q=${location}&appid=${keyAPI}`)
     .then((resp) => resp.json()) //Promise pending stage
     .then(displayWeather);
 }
@@ -31,32 +35,3 @@ function displayWeather(data) {
   temp.innerHTML = `${Math.floor(data.main.temp)}<span>F</span>`;
   stat.textContent = data.weather[0].description;
 }
-
-/* const getWeather = async (location) => {
-  const request = await fetch(
-    `${api.base}weather?q=${location}&appid=${api.key}`
-  );
-  const data = await request.json();
-  return data;
-};
-
-const displayWeather = async () => {
-  const detail = await getWeather();
-  return detail.name;
-}; */
-// displayWeather();
-/* searchInput.addEventListener("keypress", searchCity);
-
-function searchCity(event) {
-  if (event.keyCode == 13) {
-    console.log(searchInput.value);
-    getWeather(searchInput.value);
-  }
-}
-
-function getWeather(city) {
-  fetch(
-    `${api.base}weather?q=${city}&units=metrics&appid=${api.key}`
-  ).then((data) => data.json());
-  console.log(data);
-} */
