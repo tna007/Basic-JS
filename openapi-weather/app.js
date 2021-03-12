@@ -19,7 +19,8 @@ function getVal(e) {
 }
 
 function getWeather(location) {
-  fetch(`${baseAPI}weather?q=${location}&appid=${keyAPI}`)
+  const url = baseAPI + "weather?q=" + location + "&appid=" + keyAPI;
+  fetch(url)
     .then((resp) => resp.json()) //Promise pending stage
     .then(displayWeather);
 }
