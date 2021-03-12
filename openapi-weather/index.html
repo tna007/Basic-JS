@@ -8,17 +8,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="search">
-        <input type="text" id="search-text" placeholder="Enter city" />
+    <main>
+      <div class="container">
+        <div class="search">
+          <input
+            type="text"
+            class="search-text"
+            placeholder="Enter city"
+            required
+          />
+        </div>
+        <div class="result">
+          <p id="result-city">City name</p>
+
+          <div class="result-temperature">18<span>F</span></div>
+          <div class="result-status">Clear</div>
+        </div>
       </div>
-      <div class="result">
-        <p id="result-city">City name</p>
-        <div class="result-icon">Sth</div>
-        <div class="result-temperature">18<span>F</span></div>
-        <div class="result-status">Clear</div>
-      </div>
-    </div>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>

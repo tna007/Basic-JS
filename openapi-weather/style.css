@@ -19,7 +19,7 @@ body {
   flex-direction: column;
 }
 
-.search {
+input {
   margin-top: 30px;
   width: 100%;
 
