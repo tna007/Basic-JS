@@ -12,7 +12,11 @@ h1 {
   align-items: center;
 }
 
-#light {
+.light.active {
+  background-color: yellow;
+}
+
+.light {
   background-color: lightseagreen;
   width: 100px;
   height: 100px;
@@ -21,19 +25,19 @@ h1 {
 }
 
 .result {
-  visibility: visible;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.over {
+.result-over {
+  visibility: hidden;
   background-color: wheat;
   width: 30%;
   padding: 30px 0 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   position: relative;
   border-radius: 10px;
 }
