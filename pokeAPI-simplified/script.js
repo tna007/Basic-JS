@@ -6,6 +6,7 @@ const getPokeList = async () => {
   return data.results;
 };
 
+// Fetch poke img by calling another API
 const getPokeURL = async (newURL) => {
   const request = await fetch(newURL);
   const data = await request.json();
