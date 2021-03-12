@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+  font-family: sans-serif;
+}
+
+.container {
+  height: 70vh;
+  width: 50%;
+
+  flex-direction: column;
+}
+
+.search {
+  margin-top: 30px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  margin: 2px;
+  padding: 2px;
+  width: 100%;
+  border-color: transparent;
+}
+
+/* button {
+  border-color: transparent;
+  cursor: pointer;
+} */
+.result {
+  margin-top: 30px;
+  padding: 5px;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result-icon,
+.result-temperature,
+.result-status,
+#result-city {
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.result-temperature,
+span {
+  display: inline-block;
+  text-align: center;
+}
+
+.result-temperature span {
+  padding: 5px;
+  font-size: 30px;
+}
+.result-temperature {
+  margin: 10px;
+  font-size: 40px;
+}
