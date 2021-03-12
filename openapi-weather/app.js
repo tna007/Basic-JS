@@ -10,6 +10,7 @@ let stat = document.querySelector(".result-status");
 
 searchInput.addEventListener("keypress", getVal);
 
+//get input value after Enter
 function getVal(e) {
   if (e.keyCode == 13) {
     // keyCode 13 is Enter key on the keyboard
@@ -20,12 +21,12 @@ function getVal(e) {
 
 function getWeather(location) {
   fetch(`${api.base}weather?q=${location}&appid=${api.key}`)
-    .then((resp) => resp.json())
+    .then((resp) => resp.json()) //Promise pending stage
     .then(displayWeather);
 }
 
 function displayWeather(data) {
-  console.log(data);
+  console.log(data); //access json file
   cityName.textContent = data.name;
   temp.innerHTML = `${Math.floor(data.main.temp)}<span>F</span>`;
   stat.textContent = data.weather[0].description;
