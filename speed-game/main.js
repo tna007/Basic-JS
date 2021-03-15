@@ -1,46 +1,64 @@
-let circles = document.querySelectorAll(".light");
-let over = document.querySelector(".result-over");
-let startBtn = document.getElementById("start");
-let stopBtn = document.getElementById("stop");
-let closeBtn = document.getElementById("close");
-let score = document.querySelectorAll("#result-score");
+const circles = document.querySelectorAll(".light");
+const over = document.querySelector(".result-over");
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const closeBtn = document.getElementById("close");
+let SPEED = 1000;
+let score = document.querySelector(".score");
+let display = document.querySelector(".result-display");
 let count = 0;
 
-for (let i = 0; i < circles.length; i++) {
-  circles[i].onclick = () => {
-    clicked(i);
-  };
-  const clicked = (i) => {
-    console.log("clicked", i);
-    count++;
-    score.innerText = `Your score is ${count}`;
-  };
-}
-
-let timer;
 const startGame = () => {
   startBtn.disabled = true;
-  let active, nextActive;
-  timer = setTimeout(function pickNew() {
-    nextActive = Math.floor(Math.random() * 4);
-    timer = setTimeout(pickNew, 1000);
-    console.log(nextActive);
-
-    if (active != null) {
-      circles[active].classList.remove("active");
+  let currentLight, newLight;
+  let timer = setTimeout(function pickNew() {
+    newLight = Math.floor(Math.random() * 4);
+    /*     circles[newLight].onclick = () => {
+      clicked(newLight);
+    };
+    const clicked = (i) => {
+      //console.log("clicked", i);
+      if (i != newLight) {
+        clearGame();
+      } else {
+        count++;
+        score.textContent = `Your score ${count}`;
+      }
+    }; */
+    if (currentLight == newLight) {
+      newLight != 3 ? newLight++ : (newLight = 0);
     }
-    circles[nextActive].classList.add("active");
-    active = nextActive;
-  }, 1000);
+    circles[newLight].classList.toggle("on"); // add classList
+
+    if (currentLight != null) {
+      circles[currentLight].classList.toggle("on"); //remove classList
+    }
+    currentLight = newLight;
+    timer = setTimeout(pickNew, SPEED); //recursion to start looping
+  }, SPEED);
+
+  circles.forEach((circle) => {
+    circle.addEventListener("click", () => {
+      if (circle.classList == "light on") {
+        count++;
+        score.textContent = `Your score is: ${count}`;
+      } else {
+        clearGame();
+      }
+    });
+  });
+
+  function clearGame() {
+    clearTimeout(timer);
+    circles[newLight].classList.toggle("on");
+    over.style.visibility = "visible";
+  }
+  stopBtn.addEventListener("click", clearGame);
 };
 startBtn.addEventListener("click", () => {
   console.log("Game started");
   startGame();
 });
-stopBtn.onclick = () => {
-  clearTimeout(timer);
-  over.style.visibility = "visible";
-};
 closeBtn.onclick = () => {
   window.location.reload();
 };
