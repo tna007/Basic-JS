@@ -9,12 +9,12 @@ let display = document.querySelector(".result-display");
 let count = 0;
 currentLight = 0;
 let timer;
-let newLight;
+newLight;
 
 function pickNewLight() {
   newLight = pickRandom(currentLight); //step 1
 
-  circles[newLight].classList.add("on"); // *stack 1st
+  circles[newLight].classList.add("on"); // *stack 1st (step 5)
   circles[currentLight].classList.remove("on"); // *stack 2nd
 
   currentLight = newLight; // *stack 3rd
@@ -30,7 +30,7 @@ function pickNewLight() {
       return pickRandom(currentLight); //recursion
     }
   }
-  timer = setTimeout(pickNewLight, DELAY); //step 5
+  timer = setTimeout(pickNewLight, DELAY); //final step
 }
 
 function checkClick() {
