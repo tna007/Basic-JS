@@ -28,6 +28,7 @@ function getWeather(location) {
 function displayWeather(data) {
   console.log(data); //access json file
   cityName.textContent = data.name;
-  temp.innerHTML = `${Math.floor(data.main.temp)}<span>F</span>`;
+  let tempCelsius = data.main.temp - 273.15;
+  temp.innerHTML = `${Math.floor(tempCelsius)}<span>C</span>`;
   stat.textContent = data.weather[0].description;
 }
