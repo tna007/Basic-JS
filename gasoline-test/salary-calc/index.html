@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salary calculator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <h1>Salary calculator</h1>
+    <p>How many hours you work a day?</p>
+    <form>
+      <div>
+        <label for="hour">Working hours</label>
+        <input type="number" id="hour" placeholder="Enter your total working hour per day"/>
+      </div>
+      <div>
+        <label for="hour-salary">Hour salary</label>
+        <input type="number" id="hour-salary" placeholder="Enter your hour salary"/>
+      </div>
+
+      <button onclick="calSalary()">Go</button>
+    
+      <p id="result"></p>
+    
+      <script src="script.js"></script>
+  </body>
+</html>

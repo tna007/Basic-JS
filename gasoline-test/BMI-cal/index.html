@@ -3,15 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Check number</title>
+    <title>BMI check</title>
   </head>
   <body>
-    <h1>Number checker</h1>
+    <h1>BMI calculate</h1>
     
     <form>
       <div>
-        <label for="number">Your number</label>
-        <input type="number" id="number" placeholder="Enter your number"/>
+        <label for="height">Height</label>
+        <input type="number" id="height" placeholder="Enter your height in metres"/>
+      </div>
+      <div>
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" placeholder="Enter your weight in killogram"/>
       </div>
 
       <button onclick="calBMI()">Go</button>
