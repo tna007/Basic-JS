@@ -71,6 +71,8 @@ Create a simple Cyclone Arcade game with custom number of lights and speed accor
 
 # [speed-game](https://github.com/tna007/Basic-JS/tree/master/speed-game)
 
+A popular speed game with simple UI, sounds & animations added
+
 [LINK](https://tna007.github.io/Basic-JS/speed-game/index.html)
 
 # [async](https://github.com/tna007/Basic-JS/tree/master/async)
