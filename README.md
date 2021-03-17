@@ -1,4 +1,4 @@
-### This is a collection of different tasks and practices while I'm studying Full Stack Development at BCH College. There's no other technologies used than basic HTML5, pure CSS and Vanilla Javascript.
+This is a collection of different tasks and practices while I'm studying Full Stack Development at BCH College. There's no other technologies used than basic HTML5, pure CSS and Vanilla Javascript.
 
 # [task1-beginner](https://github.com/tna007/Basic-JS/tree/master/task1-beginner)
 
