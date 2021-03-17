@@ -3,7 +3,7 @@ const over = document.querySelector(".result-over");
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const closeBtn = document.getElementById("close");
-let SPEED = 1000;
+let DELAY = 1000;
 let score = document.querySelector(".score");
 let display = document.querySelector(".result-display");
 let count = 0;
@@ -13,33 +13,22 @@ const startGame = () => {
   let currentLight, newLight;
   let timer = setTimeout(function pickNew() {
     newLight = Math.floor(Math.random() * 4);
-    /*     circles[newLight].onclick = () => {
-      clicked(newLight);
-    };
-    const clicked = (i) => {
-      //console.log("clicked", i);
-      if (i != newLight) {
-        clearGame();
-      } else {
-        count++;
-        score.textContent = `Your score ${count}`;
-      }
-    }; */
+
     if (currentLight == newLight) {
       newLight != 3 ? newLight++ : (newLight = 0);
     }
     circles[newLight].classList.toggle("on"); // add classList
 
-    if (currentLight != null) {
+    if (currentLight != undefined) {
       circles[currentLight].classList.toggle("on"); //remove classList
     }
     currentLight = newLight;
-    timer = setTimeout(pickNew, SPEED); //recursion to start looping
-  }, SPEED);
-
+    timer = setTimeout(pickNew, DELAY); //recursion to start looping
+  }, DELAY);
+  let clicked = false;
   circles.forEach((circle) => {
     circle.addEventListener("click", () => {
-      if (circle.classList == "light on") {
+      if (circle.classList == "light on" && (clicked = true)) {
         count++;
         score.textContent = `Your score is: ${count}`;
       } else {
@@ -47,6 +36,8 @@ const startGame = () => {
       }
     });
   });
+
+
 
   function clearGame() {
     clearTimeout(timer);
