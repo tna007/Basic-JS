@@ -1,6 +1,4 @@
-# Basic JavaScript practice
-
-This is a collection of different tasks and practices while I'm studying Full Stack Development at BCH College. There's no other technologies used than basic HTML5, pure CSS and Vanilla Javascript.
+### This is a collection of different tasks and practices while I'm studying Full Stack Development at BCH College. There's no other technologies used than basic HTML5, pure CSS and Vanilla Javascript.
 
 # [task1-beginner](https://github.com/tna007/Basic-JS/tree/master/task1-beginner)
 
@@ -74,6 +72,12 @@ Create a simple Cyclone Arcade game with custom number of lights and speed accor
 # [speed-game](https://github.com/tna007/Basic-JS/tree/master/speed-game)
 
 [LINK](https://tna007.github.io/Basic-JS/speed-game/index.html)
+
+# [async](https://github.com/tna007/Basic-JS/tree/master/async)
+
+Practice `Promise`, `async` and `await` methods to fetch random user API.
+
+[LINK](https://tna007.github.io/Basic-JS/async/index.html)
 
 # [pokedex](https://github.com/tna007/Basic-JS/tree/master/pokeAPI-simplified)
 
