@@ -60,13 +60,13 @@ Create a simple Cyclone Arcade game with custom number of lights and speed accor
 
 [LINK]
 
-# [Scope & Function](https://github.com/tna007/Basic-JS/tree/master/scopeandfunc/task_2)
+# [Scope & Function](https://github.com/tna007/Basic-JS/tree/master/scopeandfunc)
 
 **task1:** Create function to sort table of users according to their age **_descendingly_** without using array methods `.find(), .filter() or .sort()`. [LINK]
 
 **calculator app**
 
-# [speed-game](https://github.com/tna007/Basic-JS/tree/master/scopeandfunc/task_2)
+# [speed-game](https://github.com/tna007/Basic-JS/tree/master/speed-game)
 
 [LINK]
 
