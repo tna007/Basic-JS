@@ -10,8 +10,9 @@ let DELAY = 1000;
 let countBlinked = 0;
 currentLight = 0;
 score = 0;
+counter = 0;
 let missClicked = [];
-let timer, newLight, clickSound, mySound;
+let timer, newLight;
 let clicked = false; // allow only one click on blink light
 
 clickSound = new Audio("./sound/Stock.mp3");
@@ -43,6 +44,7 @@ function pickNewLight() {
     }
   }
   timer = setTimeout(pickNewLight, DELAY); //final step
+  console.log(DELAY);
 }
 
 function checkClick() {
@@ -50,11 +52,11 @@ function checkClick() {
     circle.addEventListener("click", () => {
       if (circle.classList == "light on" && clicked == false) {
         score++;
-        scoreDisplay.textContent = `Your score ${score}`;
+        scoreDisplay.textContent = `SCORE ${score}`;
         clicked = true;
         clickSound.play();
         missClicked = [];
-        DELAY -= 10;
+        DELAY -= 20;
       } else {
         score = score;
         clearGame();
@@ -62,7 +64,7 @@ function checkClick() {
     });
   });
 }
-let audioPlayed = false;
+
 function clearGame() {
   clearTimeout(timer);
   circles[newLight].classList.remove("on");
@@ -81,21 +83,19 @@ function clearGame() {
     ? mySound1.pause()
     : "";
 
-  scoreResult.innerHTML = `<h4>Looking good my friend</h4>
-  <br><h4>Your score ${score}</h4>
+  scoreResult.innerHTML = `<h4>Your score ${score}</h4>
   `;
 }
-stopBtn.style.visibility = "hidden";
-stopBtn.addEventListener("click", () => {
-  clearGame;
-});
 
-startBtn.addEventListener("click", () => {
-  console.log("Game started");
-  startBtn.style.visibility = "hidden";
-  stopBtn.style.visibility = "visible";
+const startGame = () => {
   pickNewLight();
   checkClick();
+};
+
+startBtn.addEventListener("click", () => {
+  startBtn.textContent = "STOP";
+  counter++;
+  counter > 1 ? clearGame() : startGame();
 });
 
 closeBtn.onclick = () => {
