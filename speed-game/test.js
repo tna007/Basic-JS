@@ -4,6 +4,7 @@ const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const closeBtn = document.getElementById("close");
 let scoreDisplay = document.querySelector(".score");
+let scoreResult = document.getElementById("score-result");
 
 let DELAY = 1000;
 let countBlinked = 0;
@@ -66,9 +67,9 @@ function clearGame() {
   clearTimeout(timer);
   circles[newLight].classList.remove("on");
   over.style.visibility = "visible";
-  score <= 1 && score >= 0
+  score <= 2 && score >= 0
     ? mySound3.play()
-    : score <= 3 && score > 1
+    : score <= 6 && score > 2
     ? mySound2.play()
     : mySound1.play();
 
@@ -79,14 +80,20 @@ function clearGame() {
     : mySound1.currentTime > 0
     ? mySound1.pause()
     : "";
-}
 
+  scoreResult.innerHTML = `<h4>Looking good my friend</h4>
+  <br><h4>Your score ${score}</h4>
+  `;
+}
+stopBtn.style.visibility = "hidden";
 stopBtn.addEventListener("click", () => {
   clearGame;
 });
 
 startBtn.addEventListener("click", () => {
   console.log("Game started");
+  startBtn.style.visibility = "hidden";
+  stopBtn.style.visibility = "visible";
   pickNewLight();
   checkClick();
 });
