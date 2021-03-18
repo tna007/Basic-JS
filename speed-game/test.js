@@ -13,24 +13,10 @@ let missClicked = [];
 let timer, newLight, clickSound, mySound;
 let clicked = false; // allow only one click on blink light
 
-function audio(src) {
-  this.audio = document.createElement("audio");
-  this.audio.src = src;
-  this.audio.style.display = "none";
-  this.audio.preload = "auto";
-  document.body.appendChild(this.audio);
-  this.play = function () {
-    this.audio.play();
-  };
-  this.stop = function () {
-    this.audio.pause();
-  };
-}
-
-clickSound = new audio("./sound/Stock.mp3");
-mySound1 = new audio("./sound/WOODY_05.mp3");
-mySound2 = new audio("./sound/HAMM_01.mp3");
-mySound3 = new audio("./sound/WOODY_12.mp3");
+clickSound = new Audio("./sound/Stock.mp3");
+mySound1 = new Audio("./sound/WOODY_05.mp3");
+mySound2 = new Audio("./sound/HAMM_01.mp3");
+mySound3 = new Audio("./sound/WOODY_12.mp3");
 
 function pickNewLight() {
   newLight = pickRandom(currentLight); //step 1
@@ -65,7 +51,7 @@ function checkClick() {
         score++;
         scoreDisplay.textContent = `Your score ${score}`;
         clicked = true;
-        clickSound.audio.play();
+        clickSound.play();
         missClicked = [];
         DELAY -= 10;
       } else {
@@ -75,25 +61,24 @@ function checkClick() {
     });
   });
 }
-
+let audioPlayed = false;
 function clearGame() {
   clearTimeout(timer);
   circles[newLight].classList.remove("on");
   over.style.visibility = "visible";
-  if (score <= 3) {
-    mySound3.play();
-  } else if (score <= 7 && score > 3) {
-    mySound2.play();
-  } else if (score > 7) {
-    mySound1.play();
-  }
-  if (mySound1.currentTime > 0) {
-    mySound1.stop();
-  } else if (mySound2.currentTime > 0) {
-    mySound2.stop();
-  } else if (mySound3.currentTime > 0) {
-    mySound3.stop();
-  }
+  score <= 1 && score >= 0
+    ? mySound3.play()
+    : score <= 3 && score > 1
+    ? mySound2.play()
+    : mySound1.play();
+
+  mySound3.currentTime > 0
+    ? mySound3.pause()
+    : mySound2.currentTime > 0
+    ? mySound2.pause()
+    : mySound1.currentTime > 0
+    ? mySound1.pause()
+    : "";
 }
 
 stopBtn.addEventListener("click", () => {
