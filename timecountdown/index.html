@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Time Countdown</h1>
-    <form action="">
-      <div>
-        <label for="start">Start Date</label>
-        <input type="date" name="start" id="start" />
+    <div class="container">
+      <h1>Time Countdown</h1>
+      <div class="date-select">
+        <form action="">
+          <div>
+            <label for="start">Start Date</label>
+            <input type="date" name="start" id="start" value="" />
+          </div>
+          <div>
+            <label for="end">End Date</label>
+            <input type="date" name="end" id="end" value="" />
+          </div>
+          <div>
+            <input type="submit" id="submit" value="Submit" />
+          </div>
+          <p id="result"></p>
+        </form>
       </div>
-      <div>
-        <label for="end">End Date</label>
-        <input type="date" name="end" id="end" />
-      </div>
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
-    </form>
-    <p id="result"></p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

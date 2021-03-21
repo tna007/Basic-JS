@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+}
+.container {
+  background-color: #333;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-select {
+  background-color: cadetblue;
+  height: 70vh;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+form {
+  background-color: lightseagreen;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+form label,
+input,
+button {
+  margin: 1rem;
+  padding: 0.25rem 0;
+  width: 100%;
+}
