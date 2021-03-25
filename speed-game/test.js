@@ -25,10 +25,9 @@ function pickNewLight() {
 
   circles[newLight].classList.add("on"); // *stack 1st (step 5)
   circles[currentLight].classList.remove("on"); // *stack 2nd
-
   countBlinked++;
   missClicked.push(countBlinked);
-  missClicked.length > 3 ? clearGame() : missClicked;
+  console.log(missClicked);
 
   currentLight = newLight; // *stack 3rd
 
@@ -45,6 +44,7 @@ function pickNewLight() {
   }
   timer = setTimeout(pickNewLight, DELAY); //final step
   console.log(DELAY);
+  missClicked.length > 3 ? clearGame() : missClicked;
 }
 
 function checkClick() {
@@ -64,7 +64,6 @@ function checkClick() {
     });
   });
 }
-
 function clearGame() {
   clearTimeout(timer);
   circles[newLight].classList.remove("on");
